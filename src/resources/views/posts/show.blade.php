@@ -1,9 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-<h1>Posts.Index(TOP)</h1>
-
-@foreach ($posts as $post)
+<h1>各記事ページ</h1>
 <div>
     <table>
     <thead>
@@ -16,9 +14,7 @@
     </thead>
     <tbody>
         <tr>
-            <td>
-                <a href="{{ url('posts/'.$post->id) }}">{{ $post->title }}</a>
-            </td>
+            <td>{{ $post->title }}</td>
             <td>{{ $post->body }}</td>
             <td>{{ $post->created_at }}</td>
             <td>{{ $post->updated_at }}</td>
@@ -26,5 +22,4 @@
     </tbody>
 </table>
 </div>
-@endforeach
 @endsection

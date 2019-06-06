@@ -15,6 +15,12 @@ Route::get('/', 'PostController@index');
 Route::resource('posts', 'PostController', array(
     'except' => 'index'
 ));
+Route::resource('users', 'UserController', array(
+    'except' => array(
+        'create',
+        'store'
+    )
+));
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');

@@ -3,19 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Post;
+use App\User;
 
-class PostController extends Controller
+class UserController extends Controller
 {
     /**
-     * ログインしてない場合のアクション制限
+     * ログインしてない場合、UserControllerは使えない
      */
     public function __construct()
     {
-        $this->middleware('auth')->except(array(
-            'index',
-            'show'
-        ));
+        $this->middleware('auth');
     }
 
     /**
@@ -25,8 +22,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
-        return view('posts.index', ['posts' => $posts]);
+        //
     }
 
     /**
@@ -34,10 +30,10 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
-    }
+    // public function create()
+    // {
+    //     //
+    // }
 
     /**
      * Store a newly created resource in storage.
@@ -45,10 +41,10 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
-    }
+    // public function store(Request $request)
+    // {
+    //     //
+    // }
 
     /**
      * Display the specified resource.

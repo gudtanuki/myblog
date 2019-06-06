@@ -11,6 +11,8 @@ class User extends Authenticatable
 {
     use Notifiable;
     use SoftDeletes;
+    // 削除したら自動で削除日付がはいる
+    protected $dates = ['deleted_at'];
 
     /**
      * The attributes that are mass assignable.

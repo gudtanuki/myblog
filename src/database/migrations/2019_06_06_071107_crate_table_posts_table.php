@@ -22,7 +22,6 @@ class CrateTablePostsTable extends Migration
                 ->onDelete('cascade');
             $table->string('title')->unique();
             $table->string('body');
-            $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();
         });

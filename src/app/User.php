@@ -40,4 +40,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * ここからリレーション
+     * - User hasMany Post
+     */
+    public function posts() {
+        return $this->hasMany('App\Post');
+    }
 }

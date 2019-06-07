@@ -11,4 +11,13 @@ class Post extends Model
     protected $dates = ['deleted_at'];
 
     protected $fillable = ['title', 'body', 'user_id'];
+
+    /**
+     * ここからリレーション
+     * - Post belongsTo User
+     */
+    public function user() {
+        return $this->belongsTo('App\User');
+    }
+
 }

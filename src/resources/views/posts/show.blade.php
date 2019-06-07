@@ -14,15 +14,17 @@
     <table>
     <thead>
         <tr>
-            <th>{{ __('Title') }}</th>
-            <th>{{ __('Body') }}</th>
-            <th>{{ __('Created') }}</th>
-            <th>{{ __('Updated') }}</th>
+            <th>Title</th>
+            <th>Posted by</th>
+            <th>Body</th>
+            <th>Created</th>
+            <th>Update</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td>{{ $post->title }}</td>
+            <td><a href="{{ url('users/' . $post->user->id) }}">{{ $post->user->name }}</a></td>
             <td>{{ $post->body }}</td>
             <td>{{ $post->created_at }}</td>
             <td>{{ $post->updated_at }}</td>

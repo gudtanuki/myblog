@@ -7,19 +7,21 @@
     <table>
     <thead>
         <tr>
-            <th>{{ __('Title') }}</th>
-            <th>{{ __('Body') }}</th>
-            <th>{{ __('Created') }}</th>
-            <th>{{ __('Updated') }}</th>
+            <th>Title</th>
+            <th>Posted by</th>
+            <th>Created</th>
+            <th>Update</th>
         </tr>
     </thead>
     <tbody>
         @foreach ($posts as $post)
         <tr>
             <td>
-                <a href="{{ url('posts/'.$post->id) }}">{{ $post->title }}</a>
+                <a href="{{ url('posts/' . $post->id) }}">{{ $post->title }}</a>
             </td>
-            <td>{{ $post->body }}</td>
+            <td>
+                <a href="{{ url('users/' . $post->user->id) }}">{{ $post->user->name }}</a>
+            </td>
             <td>{{ $post->created_at }}</td>
             <td>{{ $post->updated_at }}</td>
         </tr>

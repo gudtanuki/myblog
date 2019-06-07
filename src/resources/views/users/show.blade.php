@@ -12,18 +12,37 @@
         </div>
     </div>
     <table>
-    <thead>
-        <tr>
-            <th>{{ __('Id') }}</th>
-            <th>{{ __('Username') }}</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>{{ $user->id }}</td>
-            <td>{{ $user->name }}</td>
-        </tr>
-    </tbody>
-</table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Username</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ $user->id }}</td>
+                <td>{{ $user->name }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="users-posts">
+        <p>MY POSTS</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Created</th>
+                    <th>Updated</th>
+                </tr>
+                @foreach ($user->posts as $post)
+                <tr>
+                    <td><a href="{{ url('posts/' . $post->id) }}">{{ $post->title }}</a></td>
+                    <td>{{ $post->created_at }}</td>
+                    <td>{{ $post->updated_at }}</td>
+                </tr>
+                @endforeach
+            </thead>
+        </table>
+    </div>
 </div>
 @endsection

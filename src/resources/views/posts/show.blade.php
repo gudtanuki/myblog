@@ -8,28 +8,57 @@
             <a href="{{ url('posts/' . $post->id . '/edit') }}">Edit</a>
         </div>
         <div class="delete-btn">
-            <a href="{{ url('posts/' . $post->id . '/delete') }}">Delete</a>
+            <form style="display:inline" action="{{ url('posts/' . $post->id) }}" method="post">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="delete-btn">Delete</button>
+            </form>
         </div>
     </div>
     <table>
-    <thead>
-        <tr>
-            <th>Title</th>
-            <th>Posted by</th>
-            <th>Body</th>
-            <th>Created</th>
-            <th>Update</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>{{ $post->title }}</td>
-            <td><a href="{{ url('users/' . $post->user->id) }}">{{ $post->user->name }}</a></td>
-            <td>{{ $post->body }}</td>
-            <td>{{ $post->created_at }}</td>
-            <td>{{ $post->updated_at }}</td>
-        </tr>
-    </tbody>
-</table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Posted by</th>
+                <th>Body</th>
+                <th>Created</th>
+                <th>Update</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ $post->title }}</td>
+                <td><a href="{{ url('users/' . $post->user->id) }}">{{ $post->user->name }}</a></td>
+                <td>{{ $post->body }}</td>
+                <td>{{ $post->created_at }}</td>
+                <td>{{ $post->updated_at }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="comment-list">
+        <ul>Comments
+            @foreach ($post->comments as $comment)
+            <li>
+                {{ $comment->body }}
+                <form style="display:inline" action="{{ url('comments/' . $comment->id) }}" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="delete-btn">Delete</button>
+                </form>
+            </li>
+            @endforeach
+        </ul>
+    </div>
+    <div class="comment-form">
+        <form action="{{ url('comments') }}" method="post">
+            @csrf
+            @method('POST')
+            <div>
+                <label for="body">Comment</label>
+                <textarea name="body" id="body" rows="3" required></textarea>
+            </div>
+            <button type="submit" name="submit">Submit</button>
+        </form>
+    </div>
 </div>
 @endsection

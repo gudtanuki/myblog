@@ -8,7 +8,11 @@
             <a href="{{ url('users/' . $user->id . '/edit') }}">Edit</a>
         </div>
         <div class="delete-btn">
-            <a href="{{ url('users/' . $user->id . '/delete') }}">Delete</a>
+            <form style="display:inline" action="{{ url('users/' . $cuser->id) }}" method="post">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="delete-btn">Delete</button>
+            </form>
         </div>
     </div>
     <table>

@@ -15,9 +15,13 @@ class Post extends Model
     /**
      * ここからリレーション
      * - Post belongsTo User
+     * - Post hasMany Comment
      */
     public function user() {
         return $this->belongsTo('App\User');
     }
 
+    public function comments() {
+        return $this->hasMany('App\Comment');
+    }
 }

@@ -21,6 +21,15 @@ Route::resource('users', 'UserController', array(
         'store'
     )
 ));
+Route::resource('comments', 'CommentController', array(
+    'except' => array(
+        'index',
+        'show',
+        'create',
+        'edit',
+        'update'
+    )
+));
 Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');

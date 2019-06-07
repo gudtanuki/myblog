@@ -3,7 +3,6 @@
 @section('content')
 <h1>Posts.Index(TOP)</h1>
 
-@foreach ($posts as $post)
 <div>
     <table>
     <thead>
@@ -15,6 +14,7 @@
         </tr>
     </thead>
     <tbody>
+        @foreach ($posts as $post)
         <tr>
             <td>
                 <a href="{{ url('posts/'.$post->id) }}">{{ $post->title }}</a>
@@ -23,8 +23,8 @@
             <td>{{ $post->created_at }}</td>
             <td>{{ $post->updated_at }}</td>
         </tr>
+        @endforeach
     </tbody>
 </table>
 </div>
-@endforeach
 @endsection

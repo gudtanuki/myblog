@@ -3,6 +3,14 @@
 @section('content')
 <h1>Posts.Show</h1>
 <div>
+    <div class="post-btns">
+        <div class="edit-btn">
+            <a href="{{ url('posts/' . $post->id . '/edit') }}">Edit</a>
+        </div>
+        <div class="delete-btn">
+            <a href="{{ url('posts/' . $post->id . '/delete') }}">Delete</a>
+        </div>
+    </div>
     <table>
     <thead>
         <tr>

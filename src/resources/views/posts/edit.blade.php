@@ -3,7 +3,7 @@
 @section('content')
 <h1>Posts.Edit</h1>
 <div class="post-edit">
-    <form action="{ route('posts.edit') }" method="post">
+    <form action="{{ url('posts/' . $post->id) }}" method="post">
         @csrf
         @method('PUT')
         <div class="form-item">
@@ -12,7 +12,7 @@
         </div>
         <div>
             <label for="body">Body</label>
-            <textarea name="body" id="body" rows="6" value="{{ $post->body }}" required></textarea>
+            <textarea name="body" id="body" rows="6" required>{{ $post->body }}</textarea>
         </div>
         <button type="submit" name="submit">Submit</button>
     </form>

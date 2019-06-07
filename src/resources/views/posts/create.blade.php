@@ -3,9 +3,9 @@
 @section('content')
 <h1>Posts.Create</h1>
 <div class="post-create">
-    <form action="{ route('posts.create') }" method="post">
+    <form action="{{ url('posts') }}" method="post">
         @csrf
-        {{-- @method('PUT') --}}
+        @method('POST')
         <div class="form-item">
             <label for="title">Title</label>
             <input id="title" type="text" name="title" required autofocus>

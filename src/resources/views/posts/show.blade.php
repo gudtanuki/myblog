@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-<h1>各記事ページ</h1>
+<h1>Posts.Show</h1>
 <div>
     <table>
     <thead>

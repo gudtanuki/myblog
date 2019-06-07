@@ -2,7 +2,12 @@
 
 @section('content')
 <h1>Posts.Index(TOP)</h1>
-
+<div>
+    <ul>
+        <li><a href="{{ url('posts/create') }}">Create post</a></li>
+        <li><a href="{{ url('users') }}">User list</a></li>
+    </ul>
+</div>
 <div>
     <table>
     <thead>

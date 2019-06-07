@@ -21,6 +21,7 @@
                 <th>Title</th>
                 <th>Posted by</th>
                 <th>Body</th>
+                <th>Image</th>
                 <th>Created</th>
                 <th>Update</th>
             </tr>
@@ -30,6 +31,13 @@
                 <td>{{ $post->title }}</td>
                 <td><a href="{{ url('users/' . $post->user->id) }}">{{ $post->user->name }}</a></td>
                 <td>{{ $post->body }}</td>
+                <td>
+                    @if ($post->image !== null)
+                    <img src="data:image/png;base64,{{ $post->image }}">
+                    @else
+                    no
+                    @endif
+                </td>
                 <td>{{ $post->created_at }}</td>
                 <td>{{ $post->updated_at }}</td>
             </tr>

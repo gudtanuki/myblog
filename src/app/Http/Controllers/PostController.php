@@ -52,6 +52,10 @@ class PostController extends Controller
         $post->title = $request->title;
         $post->body = $request->body;
         $post->user_id = Auth::user()->id;
+
+        if ($request->image !== null) {
+            $post->image = base64_encode(file_get_contents($request->image->getRealPath()));
+        }
         $post->save();
         return redirect('posts/'.$post->id);
     }
@@ -89,6 +93,9 @@ class PostController extends Controller
     {
         $post->title = $request->title;
         $post->body = $request->body;
+        if ($request->image !== null) {
+            $post->image = base64_encode(file_get_contents($request->image->getRealPath()));
+        }
         $post->save();
         return redirect('posts/' . $post->id);
     }

@@ -22,6 +22,7 @@ class CrateTablePostsTable extends Migration
                 ->onDelete('cascade');
             $table->string('title')->unique();
             $table->string('body');
+            $table->text('image')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

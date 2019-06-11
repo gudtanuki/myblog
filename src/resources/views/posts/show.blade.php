@@ -50,11 +50,13 @@
             @foreach ($post->comments as $comment)
             <li>
                 {{ $comment->body }}
+                @can('update', $post)
                 <form style="display:inline" action="{{ url('comments/' . $comment->id) }}" method="post">
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="delete-btn">Delete</button>
                 </form>
+                @endcan
             </li>
             @endforeach
         </ul>

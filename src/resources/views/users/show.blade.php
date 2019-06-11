@@ -3,6 +3,7 @@
 @section('content')
 <h1>Users.Show</h1>
 <div>
+    @can('update', $user)
     <div class="user-btns">
         <div class="edit-btn">
             <a href="{{ url('users/' . $user->id . '/edit') }}">Edit</a>
@@ -15,6 +16,7 @@
             </form>
         </div>
     </div>
+    @endcan
     <table>
         <thead>
             <tr>

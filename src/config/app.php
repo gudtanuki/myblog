@@ -137,11 +137,6 @@ return [
     'providers' => [
 
         /*
-         * Debugger
-         * $ composer require barryvdh/laravel-debugbar --dev
-         */
-        Barryvdh\Debugbar\ServiceProvider::class,
-        /*
          * Laravel Framework Service Providers...
          */
         Illuminate\Auth\AuthServiceProvider::class,

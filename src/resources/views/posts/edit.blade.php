@@ -38,7 +38,7 @@
         $("#image_delete").on("click", function(){
             $("#image-view").remove();
             $("#image_delete").remove();
-            $('#image-label').after('<input type="file" name="image" id="image-input" value="null"><button type="button" id="image_reset">image reset</button>');
+            $('#image-label').after('<input type="hidden" name="noimage" value="null"><input type="file" name="image" id="image-input" value="null"><button type="button" id="image_reset">image reset</button>');
         });
     });
 </script>

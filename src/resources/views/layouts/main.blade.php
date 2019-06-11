@@ -34,11 +34,14 @@
                     </a>
                 </li>
                 <li class="sign-item signed">
-                    <a class="item-link" href="{{ route('logout') }}">
+                    <a class="item-link" href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                    document.getElementById('logout-form').submit();">
                         {{ __('Logout') }}
                     </a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
+                        @method('POST')
                     </form>
                 </li>
             @endguest

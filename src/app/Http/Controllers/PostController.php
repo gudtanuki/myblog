@@ -95,6 +95,8 @@ class PostController extends Controller
         $post->body = $request->body;
         if ($request->image !== null) {
             $post->image = base64_encode(file_get_contents($request->image->getRealPath()));
+        } else {
+            $post->image = null;
         }
         $post->save();
         return redirect('posts/' . $post->id);

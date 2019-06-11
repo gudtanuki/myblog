@@ -14,11 +14,21 @@
             <label for="body">Body</label>
             <textarea name="body" id="body" rows="6" required></textarea>
         </div>
-        <div class="form-item">
-            <label for="image">Image</label>
-            <input type="file" name="image">
+        
+        <div class="form-item" id="imageform">
+            <label for="image" id="image-label">Image</label>
+            <input type="file" name="image" id="image-input">
+            <button type="button" id="image_reset">image reset</button>
         </div>
         <button type="submit" name="submit">Submit</button>
     </form>
 </div>
+<script>
+    $(function() {
+        $("#image_reset").on("click", function(){
+            $("#image-input").remove();
+            $('#image-label').after('<input type="file" name="image" id="image-input">');
+        });
+    });
+</script>
 @endsection

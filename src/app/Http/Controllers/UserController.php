@@ -78,13 +78,17 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\ValidateUser $request
+     * @param  \Illuminate\Http\Request  $request
      * @param  \App\User $user
      * @return \Illuminate\Http\Response
      */
-    public function update(ValidateUser $request, User $user)
+    public function update(Request $request, User $user)
     {
         $this->authorize('update', $user);
+        // ValidateUserの'name'部分だけ使用する
+        $request->validate([
+            'name' => (new ValidateUser())->rules()['name']
+        ]);
         $user->name = $request->name;
         $user->save();
         return redirect('users/' . $user->id);

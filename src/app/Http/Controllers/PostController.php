@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ValidatePost;
+use App\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Post;
+
 
 class PostController extends Controller
 {
@@ -43,10 +45,10 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\ValidatePost $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ValidatePost $request)
     {
         $post = new Post;
         $post->title = $request->title;
@@ -86,11 +88,11 @@ class PostController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\ValidatePost $request
      * @param  \App\Post $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(ValidatePost $request, Post $post)
     {
         $this->authorize('update', $post);
         $post->title = $request->title;

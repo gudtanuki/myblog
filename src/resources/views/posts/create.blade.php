@@ -1,8 +1,8 @@
 @extends('layouts.main')
 
 @section('content')
-<h1>Posts.Create</h1>
-<div class="post-create">
+<h1>Create Post</h1>
+<div class="form-area">
     <form action="{{ url('posts') }}" method="post" enctype="multipart/form-data">
         @csrf
         @method('POST')
@@ -27,7 +27,7 @@
         
         <div class="form-item form-group" id="imageform">
             <label for="image" id="image-label">Image</label>
-            <input type="file" class="form-control @if ($errors->has('image')) is-invalid @endif" id="image-input" name="image">
+            <input type="file" class="@if ($errors->has('image')) is-invalid @endif" id="image-input" name="image">
             @if ($errors->has('image'))
                 <span class="invalid-feedback">
                     {{ $errors->first('image') }}
@@ -35,7 +35,7 @@
             @endif
             <button type="button" id="image_reset">image reset</button>
         </div>
-        <button type="submit" name="submit">Submit</button>
+        <button type="submit" class="submit-btn btn btn-primary" name="submit">Submit</button>
     </form>
 </div>
 <script>

@@ -1,54 +1,37 @@
 @extends('layouts.main')
 
 @section('content')
-<h1>Users.Show</h1>
-<div>
+<div class="user-area">
+    <h1>User:{{ $user->name }}</h1>
     @can('update', $user)
     <div class="user-btns">
-        <div class="edit-btn">
-            <a href="{{ url('users/' . $user->id . '/edit') }}" class="btn btn-primary">Edit</a>
-        </div>
-        <div class="delete-btn">
-            @component('components.delete-btn')
-                @slot('controller', 'users')
-                @slot('id', $user->id)
-                @slot('name', $user->name)
-            @endcomponent
-        </div>
+        <a href="{{ url('users/' . $user->id . '/edit') }}" class="btn btn-primary">Edit</a>
+        @component('components.delete-btn')
+            @slot('controller', 'users')
+            @slot('id', $user->id)
+            @slot('name', $user->name)
+        @endcomponent
     </div>
     @endcan
+</div>
+<div class="posts-table">
+    <h1>MY POSTS</h1>
     <table>
         <thead>
             <tr>
-                <th>ID</th>
-                <th>Username</th>
+                <th>Title</th>
+                <th>Created</th>
+                <th>Updated</th>
             </tr>
-        </thead>
-        <tbody>
+            @foreach ($user->posts as $post)
             <tr>
-                <td>{{ $user->id }}</td>
-                <td>{{ $user->name }}</td>
+                <td><a href="{{ url('posts/' . $post->id) }}">{{ $post->title }}</a></td>
+                <td class="datetime">{{ $post->created_at }}</td>
+                <td class="datetime">{{ $post->updated_at }}</td>
             </tr>
-        </tbody>
+            @endforeach
+        </thead>
     </table>
-    <div class="users-posts">
-        <p>MY POSTS</p>
-        <table>
-            <thead>
-                <tr>
-                    <th>Title</th>
-                    <th>Created</th>
-                    <th>Updated</th>
-                </tr>
-                @foreach ($user->posts as $post)
-                <tr>
-                    <td><a href="{{ url('posts/' . $post->id) }}">{{ $post->title }}</a></td>
-                    <td>{{ $post->created_at }}</td>
-                    <td>{{ $post->updated_at }}</td>
-                </tr>
-                @endforeach
-            </thead>
-        </table>
-    </div>
+    {{ $user->posts->links() }}
 </div>
 @endsection

@@ -1,0 +1,116 @@
+html, body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  height: 100%;
+  header{
+    padding: 30px;
+    div.sign-menu {
+      ul {
+        margin-left: auto;
+        width: 400px;
+        display:flex;
+        justify-content: center;
+        padding: 0;
+        list-style: none;
+        li {
+          width: 90px;
+          height: 40px;
+          margin-left:5px;
+          margin-right:5px;
+          font-size: 14px;
+          position: relative;
+          &:hover {
+            opacity: 0.5;
+          }
+          a {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            color: black;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+    div.blog-title {
+      text-align: center;
+      a {
+        font-size: 50px;
+        color: black;
+        text-decoration: none;
+        &:hover {
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+  main {
+    div.container {
+      text-align: center;
+      h1 {
+        margin: auto;
+        font-size: 25px;
+        span{
+          text-align: left;
+        }
+      }
+      div.posts-table {
+        table {
+          margin: 10px auto;
+          border-collapse: separate;
+          border-spacing: 15px 5px;
+          td {
+            text-align: left;
+            a {
+              color: black;
+              text-decoration: none;
+              &:hover {
+                opacity: 0.5;
+              }
+            }
+            img.image-size {
+              max-width: 100px;
+              height: auto;
+            }
+          }
+          td.username {
+            font-size: 15px;
+          }
+          td.datetime {
+            font-size: 12px;
+          }
+        }
+      }
+      ul.pagination {
+        justify-content: center;
+        padding-top: 10px;
+      }
+      div.form-area {
+        div.form-group {
+          width: 70%;
+          margin-right: auto;
+          margin-left: auto;
+        }
+      }
+      div.comment-list {
+        ul {
+          li {
+            list-style: none;
+          }
+        }
+      }
+    }
+  }
+  footer {
+    margin-top: auto;
+    padding-top: 50px;
+    padding-bottom: 10px;
+    text-align: center;
+  }
+}

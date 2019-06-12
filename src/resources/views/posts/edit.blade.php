@@ -2,8 +2,7 @@
 
 @section('content')
 <h1>Posts.Edit</h1>
-<div class="post-edit">
-
+<div class="form-area">
     <form action="{{ url('posts/' . $post->id) }}" method="post" enctype="multipart/form-data">
         @csrf
         @method('PUT')
@@ -31,7 +30,7 @@
             <img id="image-view" src="data:image/png;base64,{{ $post->image }}">
             <button type="button" id="image_delete">image delete</button>         
             @endif
-            <input type="file" class="form-control @if ($errors->has('image')) is-invalid @endif" id="image-input" name="image">
+            <input type="file" class="@if ($errors->has('image')) is-invalid @endif" id="image-input" name="image">
             <button type="button" id="image_reset">image reset</button>
             @if ($errors->has('image'))
                 <span class="invalid-feedback">
@@ -39,7 +38,7 @@
                 </span>
             @endif
             </div>
-        <button type="submit" name="submit">Submit</button>
+        <button type="submit"  class="submit-btn btn btn-primary" name="submit">Submit</button>
     </form>
 </div>
 <script>

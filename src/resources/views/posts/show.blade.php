@@ -6,14 +6,14 @@
     @can('update', $post)
     <div class="post-btns">
         <div class="edit-btn">
-            <a href="{{ url('posts/' . $post->id . '/edit') }}">Edit</a>
+            <a href="{{ url('posts/' . $post->id . '/edit') }}" class="btn btn-primary">Edit</a>
         </div>
         <div class="delete-btn">
-            <form style="display:inline" action="{{ url('posts/' . $post->id) }}" method="post">
-                @csrf
-                @method('DELETE')
-                <button type="submit" class="delete-btn">Delete</button>
-            </form>
+            @component('components.delete-btn')
+                @slot('controller', 'posts')
+                @slot('id', $post->id)
+                @slot('name', $post->title)s
+            @endcomponent
         </div>
     </div>
     @endcan

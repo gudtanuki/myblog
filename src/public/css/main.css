@@ -26,10 +26,10 @@ body header div.sign-menu ul {
 
 html header div.sign-menu ul li,
 body header div.sign-menu ul li {
-  width: 90px;
+  width: 60px;
   height: 40px;
   margin-left: 5px;
-  margin-right: 5px;
+  margin-right: 3px;
   font-size: 14px;
   position: relative;
 }
@@ -52,6 +52,8 @@ body header div.sign-menu ul li a {
 
 html header div.blog-title,
 body header div.blog-title {
+  padding: 30px;
+  padding-top: 10px;
   text-align: center;
 }
 
@@ -69,25 +71,28 @@ body header div.blog-title a:hover {
 
 html main div.container,
 body main div.container {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+html main div.container div.posts-table p,
+body main div.container div.posts-table p {
+  margin-bottom: 0px;
+  margin-top: 10px;
   text-align: center;
-}
-
-html main div.container h1,
-body main div.container h1 {
-  margin: auto;
-  font-size: 25px;
-}
-
-html main div.container h1 span,
-body main div.container h1 span {
-  text-align: left;
 }
 
 html main div.container div.posts-table table,
 body main div.container div.posts-table table {
-  margin: 10px auto;
+  font-size: 20px;
+  margin: auto;
   border-collapse: separate;
-  border-spacing: 15px 5px;
+  border-spacing: 20px 30px;
+}
+
+html main div.container div.posts-table table thead,
+body main div.container div.posts-table table thead {
+  font-size: 15px;
 }
 
 html main div.container div.posts-table table td,
@@ -108,7 +113,7 @@ body main div.container div.posts-table table td a:hover {
 
 html main div.container div.posts-table table td img.image-size,
 body main div.container div.posts-table table td img.image-size {
-  max-width: 100px;
+  max-width: 300px;
   height: auto;
 }
 
@@ -122,22 +127,81 @@ body main div.container div.posts-table table td.datetime {
   font-size: 12px;
 }
 
+html main div.container div.post-show,
+body main div.container div.post-show {
+  margin: auto;
+  width: 80%;
+}
+
+html main div.container div.post-show a.username,
+body main div.container div.post-show a.username {
+  color: black;
+  text-decoration: none;
+}
+
+html main div.container div.post-show a.username:hover,
+body main div.container div.post-show a.username:hover {
+  opacity: 0.5;
+}
+
+html main div.container div.post-show p.post-body,
+body main div.container div.post-show p.post-body {
+  font-size: 30px;
+}
+
+html main div.container div.post-show p.datetime,
+body main div.container div.post-show p.datetime {
+  font-size: 15px;
+}
+
+html main div.container div.user-area,
+body main div.container div.user-area {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+html main div.container div.user-list table,
+body main div.container div.user-list table {
+  border-collapse: separate;
+  border-spacing: 20px 5px;
+}
+
+html main div.container div.user-list table thead tr,
+body main div.container div.user-list table thead tr {
+  font-size: 30px;
+}
+
+html main div.container div.user-list table thead tr th,
+body main div.container div.user-list table thead tr th {
+  font-size: 25px;
+}
+
+html main div.container div.user-list table thead tr th.user-top,
+body main div.container div.user-list table thead tr th.user-top {
+  font-size: 30px;
+}
+
+html main div.container div.form-area,
+body main div.container div.form-area {
+  margin: auto;
+  width: 80%;
+}
+
+html main div.container div.comment-list tr td,
+body main div.container div.comment-list tr td {
+  list-style: none;
+}
+
+html main div.container div.comment-list tr td.datetime,
+body main div.container div.comment-list tr td.datetime {
+  font-size: 10px;
+}
+
 html main div.container ul.pagination,
 body main div.container ul.pagination {
   justify-content: center;
   padding-top: 10px;
-}
-
-html main div.container div.form-area div.form-group,
-body main div.container div.form-area div.form-group {
-  width: 70%;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-html main div.container div.comment-list ul li,
-body main div.container div.comment-list ul li {
-  list-style: none;
 }
 
 html footer,
@@ -146,5 +210,13 @@ body footer {
   padding-top: 50px;
   padding-bottom: 10px;
   text-align: center;
+}
+
+a.btn {
+  padding: 3px 8px;
+}
+
+button.btn {
+  padding: 3px 8px;
 }
 

@@ -1,8 +1,8 @@
 @extends('layouts.main')
 
 @section('content')
-<h1>Users.Edit</h1>
-<div class="user-edit">
+<div class="form-area">
+    <h1>Edit User</h1>
     <form action="{{ url('users/' . $user->id) }}" method="post">
         @csrf
         @method('PUT')
@@ -15,7 +15,7 @@
                 </span>
             @endif
         </div>
-        <button type="submit" name="submit">Submit</button>
+        <button type="submit" class="submit btn btn-primary" name="submit">Submit</button>
     </form>
 </div>
 @endsection

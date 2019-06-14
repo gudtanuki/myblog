@@ -1,8 +1,8 @@
 @extends('layouts.main')
 
 @section('content')
-<h1>Create Post</h1>
 <div class="form-area">
+    <h1>New Post</h1>
     <form action="{{ url('posts') }}" method="post" enctype="multipart/form-data">
         @csrf
         @method('POST')
@@ -33,7 +33,7 @@
                     {{ $errors->first('image') }}
                 </span>
             @endif
-            <button type="button" id="image_reset">image reset</button>
+            <button type="button" class="btn btn-secondary" id="image_reset">image reset</button>
         </div>
         <button type="submit" class="submit-btn btn btn-primary" name="submit">Submit</button>
     </form>

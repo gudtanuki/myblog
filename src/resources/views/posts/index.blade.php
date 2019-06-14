@@ -1,7 +1,6 @@
 @extends('layouts.main')
 
 @section('content')
-<h1><span>Posts</span></h1>
 <div class="posts-table">
     <table>
         <thead>

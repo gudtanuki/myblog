@@ -17,21 +17,24 @@
     <header>
         <div class="sign-menu">
             <ul class="sign-items">
+                <li class="sign-item top">
+                    <a class="item-link" href="{{ url('/') }}">Top</a>
+                </li>
                 @guest
                     <li class="sign-item unsigned">
-                        <a class="item-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        <a class="item-link" href="{{ route('login') }}">Login</a>
                     </li>
                     @if (Route::has('register'))
                     <li class="sign-item">
-                        <a class="item-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                        <a class="item-link" href="{{ route('register') }}">Register</a>
                     </li>
                     @endif
                 @else
                     <li class="sign-item signed">
-                        <a class="item-link" href="{{ url('posts/create') }}">CreatePost</a>
+                        <a class="item-link" href="{{ url('posts/create') }}">Post</a>
                     </li>
                     <li class="sign-item signed">
-                        <a class="item-link" href="{{ url('users/') }}">UserList</a>
+                        <a class="item-link" href="{{ url('users/') }}">Users</a>
                     </li>
                     <li class="sign-item signed">
                         <a class="item-link" href="{{ url('users/' . Auth::user()->id) }}">MyPage</a>

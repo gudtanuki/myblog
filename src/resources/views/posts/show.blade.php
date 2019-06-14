@@ -1,8 +1,9 @@
 @extends('layouts.main')
 
 @section('content')
-<h1>{{ $post->title }}</h1>
-<div>
+<div class="post-show">
+    <h1>{{ $post->title }}</h1>
+    <a class="username" href="{{ url('users/' . $post->user->id) }}">by {{ $post->user->name }}</a>
     @can('update', $post)
     <div class="post-btns">
         <a href="{{ url('posts/' . $post->id . '/edit') }}" class="btn btn-primary">Edit</a>
@@ -13,66 +14,54 @@
         @endcomponent
     </div>
     @endcan
-    <div class="posts-table">
+    <div class="post-info">
+        <hr>
+        <p class="datetime">created:{{ $post->created_at->format('Y-m-d') }}</p>
+        <p class="datetime">updated:{{ $post->updated_at->format('Y-m-d') }}</p>
+        <hr>
+        <p class="post-body">{!! nl2br(e($post->body)) !!}</p>
+        <hr>
+        @if ($post->image !== null)
+        <div class="image">
+            <img class="image-size" src="data:image/png;base64,{{ $post->image }}">
+        </div>
+        <hr>
+        @endif
+    </div>
+    <div class="comment-list">
+        <h2>Comments</h2>
         <table>
-            <thead>
-                <tr>
-                    <th>Posted by</th>
-                    <th>Body</th>
-                    <th>Image</th>
-                    <th class="datetime">Created</th>
-                    <th class="datetime">Update</th>
-                </tr>
-            </thead>
             <tbody>
+                @foreach ($post->comments as $comment)
                 <tr>
-                    <td class="username"><a href="{{ url('users/' . $post->user->id) }}">{{ $post->user->name }}</a></td>
-                    <td>{{ $post->body }}</td>
+                    <td>{{ $loop->iteration }}, </td>
+                    <td>{{ $comment->body }}</td>
+                    <td class="datetime">{{ $comment->created_at->format('Y-m-d') }}</td>
+                    @can('update', $post)
                     <td>
-                        @if ($post->image !== null)
-                        <img class="image-size" src="data:image/png;base64,{{ $post->image }}">
-                        @else
-                        no
-                        @endif
+                        @component('components.delete-btn')
+                            @slot('controller', 'comments')
+                            @slot('id', $comment->id)
+                            @slot('name', $comment->body)
+                        @endcomponent
                     </td>
-                    <td class="datetime">{{ $post->created_at }}</td>
-                    <td class="datetime">{{ $post->updated_at }}</td>
+                    @endcan
                 </tr>
+                @endforeach
             </tbody>
         </table>
-        <div class="comment-list">
-            <table>
-                Comments
-                <tbody>
-                    @foreach ($post->comments as $comment)
-                    <tr>
-                        <td>{{ $comment->body }}</td>
-                        <td>{{ $comment->created_at }}</td>
-                        @can('update', $post)
-                        <td>
-                            @component('components.delete-btn')
-                                @slot('controller', 'comments')
-                                @slot('id', $comment->id)
-                                @slot('name', $comment->body)
-                            @endcomponent
-                        </td>
-                        @endcan
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        </div>
-        <div class="comment-form">
-            <form action="{{ url('comments') }}" method="post">
-                @csrf
-                @method('POST')
-                <div>
-                    <label for="body">Comment</label>
-                    <textarea name="body" id="body" rows="3" required></textarea>
-                </div>
+    </div>
+    <hr>
+    <div class="comment-form">
+        <form action="{{ url('comments') }}" method="post">
+            @csrf
+            @method('POST')
+            <div class="form-group">
+                <label for="body">Comment</label>
+                <textarea class="form-control" id="body" name="body" rows="3" required></textarea>
                 <button type="submit" class="btn btn-primary" name="submit">Submit</button>
-            </form>
-        </div>
+            </div>
+        </form>
     </div>
 </div>
 @endsection

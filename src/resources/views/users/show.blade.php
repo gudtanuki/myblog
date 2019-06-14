@@ -15,6 +15,7 @@
     @endcan
 </div>
 <div class="posts-table">
+    @if ($user->posts)
     <table>
         <p>MY POSTS</p>
         <thead>
@@ -35,5 +36,8 @@
         </tbody>
     </table>
     {{ $user->posts->links() }}
-</div>
+    @else
+    <p class="no-post">No Posts</p>   
+    @endif
+</div>  
 @endsection

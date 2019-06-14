@@ -60,7 +60,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        $user->posts = $user->posts()->paginate(5);
+        $user->posts = $user->posts()->orderByDesc('updated_at')->paginate(5);
         return view('users.show', ['user' => $user]);
     }
 

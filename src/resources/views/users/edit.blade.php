@@ -15,6 +15,15 @@
                 </span>
             @endif
         </div>
+        <div class="form-item form-group">
+                <label for="name">Email</label>
+                <input class="form-control @if ($errors->has('email')) is-invalid @endif" id="email" type="text" name="email" value="{{ old('name', $user->email) }}" required>
+                @if ($errors->has('email'))
+                    <span class="invalid-feedback">
+                        {{ $errors->first('email') }}
+                    </span>
+                @endif
+            </div>
         <button type="submit" class="submit btn btn-primary" name="submit">Submit</button>
     </form>
 </div>

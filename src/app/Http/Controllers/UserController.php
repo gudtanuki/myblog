@@ -90,7 +90,14 @@ class UserController extends Controller
         $request->validate([
             'name' => (new ValidateUser())->rules()['name']
         ]);
+        if ($user->email !== $request->email) {
+            $request->validate([
+                'email' => (new ValidateUser())->rules()['email']
+            ]);
+        }
+
         $user->name = $request->name;
+        $user->email = $request->email;
         $user->save();
         return redirect('users/' . $user->id);
     }

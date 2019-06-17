@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCommemtsTable extends Migration
+class CreateCommentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -16,10 +16,7 @@ class CreateCommemtsTable extends Migration
         Schema::create('comments', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('post_id')->unsigned();
-            $table->foreign('post_id')
-                ->references('id')
-                ->on('posts')
-                ->onDelete('cascade');
+            $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
             $table->string('body');
             $table->timestamps();
             $table->softDeletes();
@@ -33,6 +30,6 @@ class CreateCommemtsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('commemts');
+        Schema::dropIfExists('comments');
     }
 }

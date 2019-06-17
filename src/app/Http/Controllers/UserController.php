@@ -111,7 +111,23 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         $this->authorize('update', $user);
+
+        // 関連するコメントを削除
+        // コメント削除用にpostsをarrayで取得
+        $posts = $user->posts;
+        foreach ($posts as $key => $post) {
+            // commentsを一括削除するときは、$post->commentsではなく、$post->comments()
+            // 逆に、$user->posts()をforeachしようとすると、usersに関連するpostを一つずつ取ってこれない
+            $comments = $post->comments();
+            $comments->delete();
+        }
+
+        // 関連する投稿を削除
+        // postsを一括削除するときは、$user->postsではなく、$user->posts()
+        $users_posts = $user->posts();
+        $users_posts->delete();
+        
         $user->delete();
-        return redirect('users');
+        return redirect('/');
     }
 }

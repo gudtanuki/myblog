@@ -38,7 +38,7 @@
                 @foreach ($post->comments as $comment)
                 <tr>
                     <td>{{ $loop->iteration }}, </td>
-                    <td>{{ $comment->body }}</td>
+                    <td>{!! nl2br(e($comment->body)) !!}</td>
                     <td class="datetime">{{ $comment->created_at->format('Y-m-d') }}</td>
                     @can('update', $post)
                     <td>

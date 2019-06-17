@@ -115,7 +115,12 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         $this->authorize('update', $post);
+
+        // 関連するコメントを削除
+        $comments = $post->comments();
+        $comments->delete();
+        
         $post->delete();
-        return redirect('posts');
+        return redirect('/');
     }
 }

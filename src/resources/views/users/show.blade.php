@@ -15,7 +15,7 @@
     @endcan
 </div>
 <div class="posts-table">
-    @if ($user->posts)
+    @if ($user->posts[0])
     <table>
         <p>MY POSTS</p>
         <thead>

@@ -28,6 +28,9 @@
         <hr>
         @endif
     </div>
+
+    {{-- コメントが一つでもあれば表示 --}}
+    @if (isset($post->comments[0]))
     <div class="comment-list">
         <h2>Comments</h2>
         <table>
@@ -51,7 +54,7 @@
             </tbody>
         </table>
     </div>
-    <hr>
+    @endif
     <div class="comment-form">
         <form action="{{ url('comments') }}" method="post">
             @csrf

@@ -31,7 +31,7 @@
             <button type="button" class="btn btn-secondary" id="image_delete">image delete</button>         
             @endif
             <div>
-                <input type="file" class="@if ($errors->has('image')) is-invalid @endif" id="image-input" name="image">
+                <input type="file" class="form-control @if ($errors->has('image')) is-invalid @endif" id="image-input" name="image">
                 <button type="button" class="btn btn-secondary" id="image_reset">image reset</button>
             </div>
             @if ($errors->has('image'))
@@ -48,7 +48,7 @@
         var test = "form-control @if ($errors->has('image')) is-invalid @endif";
         $("#image_reset").on("click", function(){
             $("#image-input").remove();
-            $('#image-label').after('<input type="file" name="image" id="image-input">');
+            $('#image-label').after('<input type="file" class="form-control <?php if ($errors->has("image")){echo "is-invalid";}?>" id="image-input" name="image">');
         });
         $("#image_delete").on("click", function(){
             $("#image-view").remove();

@@ -25,9 +25,9 @@
             @endif
         </div>
         
-        <div class="form-item form-group" id="imageform">
+        <div class="form-item form-group">
             <label for="image" id="image-label">Image</label>
-            <input type="file" class="@if ($errors->has('image')) is-invalid @endif" id="image-input" name="image">
+            <input type="file" class="form-control @if ($errors->has('image')) is-invalid @endif" id="image-input" name="image">
             @if ($errors->has('image'))
                 <span class="invalid-feedback">
                     {{ $errors->first('image') }}
@@ -42,7 +42,7 @@
     $(function() {
         $("#image_reset").on("click", function(){
             $("#image-input").remove();
-            $('#image-label').after('<input type="file" name="image" id="image-input">');
+            $('#image-label').after('<input type="file" class="form-control <?php if ($errors->has("image")){echo "is-invalid";}?>" id="image-input" name="image">');
         });
     });
 </script>

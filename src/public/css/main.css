@@ -73,146 +73,335 @@ body header div.blog-title a:hover {
 html main div.container,
 body main div.container {
   padding-top: 50px;
+  padding-bottom: 50px;
   margin-left: auto;
   margin-right: auto;
 }
 
-html main div.container div.posts-table,
-body main div.container div.posts-table {
-  margin-top: 50px;
-}
-
-html main div.container div.posts-table p,
-body main div.container div.posts-table p {
-  margin-bottom: 0px;
-  margin-top: 10px;
-  text-align: center;
-}
-
-html main div.container div.posts-table table,
-body main div.container div.posts-table table {
-  font-size: 20px;
+html main div.container div.posts-list,
+html main div.container div.users-list,
+html main div.container div.my-posts-list,
+body main div.container div.posts-list,
+body main div.container div.users-list,
+body main div.container div.my-posts-list {
   margin: auto;
-  border-collapse: separate;
-  border-spacing: 0px 30px;
+  width: 80%;
 }
 
-html main div.container div.posts-table table thead,
-body main div.container div.posts-table table thead {
-  font-size: 15px;
+html main div.container div.posts-list table,
+html main div.container div.users-list table,
+html main div.container div.my-posts-list table,
+body main div.container div.posts-list table,
+body main div.container div.users-list table,
+body main div.container div.my-posts-list table {
+  width: 100%;
+  border-collapse: collapse;
 }
 
-html main div.container div.posts-table table td,
-body main div.container div.posts-table table td {
-  text-align: left;
+html main div.container div.posts-list table thead tr,
+html main div.container div.users-list table thead tr,
+html main div.container div.my-posts-list table thead tr,
+body main div.container div.posts-list table thead tr,
+body main div.container div.users-list table thead tr,
+body main div.container div.my-posts-list table thead tr {
+  border-bottom: 1px dashed #ccc;
 }
 
-html main div.container div.posts-table table td a,
-body main div.container div.posts-table table td a {
-  color: black;
+html main div.container div.posts-list table thead tr th,
+html main div.container div.users-list table thead tr th,
+html main div.container div.my-posts-list table thead tr th,
+body main div.container div.posts-list table thead tr th,
+body main div.container div.users-list table thead tr th,
+body main div.container div.my-posts-list table thead tr th {
+  padding: 8px 0px 8px 8px;
+  font-size: 20px;
+}
+
+html main div.container div.posts-list table thead tr th.post-top,
+html main div.container div.posts-list table thead tr th.user-top,
+html main div.container div.users-list table thead tr th.post-top,
+html main div.container div.users-list table thead tr th.user-top,
+html main div.container div.my-posts-list table thead tr th.post-top,
+html main div.container div.my-posts-list table thead tr th.user-top,
+body main div.container div.posts-list table thead tr th.post-top,
+body main div.container div.posts-list table thead tr th.user-top,
+body main div.container div.users-list table thead tr th.post-top,
+body main div.container div.users-list table thead tr th.user-top,
+body main div.container div.my-posts-list table thead tr th.post-top,
+body main div.container div.my-posts-list table thead tr th.user-top {
+  font-size: 30px;
+}
+
+html main div.container div.posts-list table tbody tr,
+html main div.container div.users-list table tbody tr,
+html main div.container div.my-posts-list table tbody tr,
+body main div.container div.posts-list table tbody tr,
+body main div.container div.users-list table tbody tr,
+body main div.container div.my-posts-list table tbody tr {
+  border-bottom: 1px dashed #ccc;
+}
+
+html main div.container div.posts-list table tbody tr td,
+html main div.container div.users-list table tbody tr td,
+html main div.container div.my-posts-list table tbody tr td,
+body main div.container div.posts-list table tbody tr td,
+body main div.container div.users-list table tbody tr td,
+body main div.container div.my-posts-list table tbody tr td {
+  padding: 10px 0px 10px 8px;
+  font-size: 20px;
+}
+
+html main div.container div.posts-list table tbody tr td a,
+html main div.container div.users-list table tbody tr td a,
+html main div.container div.my-posts-list table tbody tr td a,
+body main div.container div.posts-list table tbody tr td a,
+body main div.container div.users-list table tbody tr td a,
+body main div.container div.my-posts-list table tbody tr td a {
+  color: #35917d;
   text-decoration: none;
 }
 
-html main div.container div.posts-table table td a:hover,
-body main div.container div.posts-table table td a:hover {
+html main div.container div.posts-list table tbody tr td a:hover,
+html main div.container div.users-list table tbody tr td a:hover,
+html main div.container div.my-posts-list table tbody tr td a:hover,
+body main div.container div.posts-list table tbody tr td a:hover,
+body main div.container div.users-list table tbody tr td a:hover,
+body main div.container div.my-posts-list table tbody tr td a:hover {
   opacity: 0.5;
 }
 
-html main div.container div.posts-table table td img.image-size,
-body main div.container div.posts-table table td img.image-size {
-  max-width: 300px;
-  height: auto;
-}
-
-html main div.container div.posts-table table tbody td,
-body main div.container div.posts-table table tbody td {
-  width: 150px;
-}
-
-html main div.container div.posts-table table tbody td.username,
-body main div.container div.posts-table table tbody td.username {
+html main div.container div.posts-list table tbody tr td.username,
+html main div.container div.users-list table tbody tr td.username,
+html main div.container div.my-posts-list table tbody tr td.username,
+body main div.container div.posts-list table tbody tr td.username,
+body main div.container div.users-list table tbody tr td.username,
+body main div.container div.my-posts-list table tbody tr td.username {
   font-size: 15px;
 }
 
-html main div.container div.posts-table table tbody td.datetime,
-body main div.container div.posts-table table tbody td.datetime {
+html main div.container div.posts-list table tbody tr td.datetime,
+html main div.container div.users-list table tbody tr td.datetime,
+html main div.container div.my-posts-list table tbody tr td.datetime,
+body main div.container div.posts-list table tbody tr td.datetime,
+body main div.container div.users-list table tbody tr td.datetime,
+body main div.container div.my-posts-list table tbody tr td.datetime {
+  font-size: 13px;
+}
+
+html main div.container div.posts-show,
+body main div.container div.posts-show {
+  margin: auto;
+  width: 80%;
+}
+
+html main div.container div.posts-show h1,
+body main div.container div.posts-show h1 {
+  font-size: 30px;
+}
+
+html main div.container div.posts-show div.btns,
+body main div.container div.posts-show div.btns {
+  float: right;
+  padding-top: 30px;
+}
+
+html main div.container div.posts-show div.btns a.btn-edit,
+body main div.container div.posts-show div.btns a.btn-edit {
+  padding: 6px 18px;
+}
+
+html main div.container div.posts-show div.posts-show-header,
+body main div.container div.posts-show div.posts-show-header {
+  border-bottom: 1px dashed #ccc;
+}
+
+html main div.container div.posts-show div.posts-show-header p,
+body main div.container div.posts-show div.posts-show-header p {
+  margin-bottom: 5px;
   font-size: 12px;
 }
 
-html main div.container div.posts-table div.no-post,
-body main div.container div.posts-table div.no-post {
-  text-align: center;
-}
-
-html main div.container div.post-show,
-body main div.container div.post-show {
-  margin: auto;
-  width: 80%;
-}
-
-html main div.container div.post-show a.username,
-body main div.container div.post-show a.username {
-  color: black;
+html main div.container div.posts-show div.posts-show-header p a.username,
+body main div.container div.posts-show div.posts-show-header p a.username {
+  color: #35917d;
   text-decoration: none;
 }
 
-html main div.container div.post-show a.username:hover,
-body main div.container div.post-show a.username:hover {
+html main div.container div.posts-show div.posts-show-header p a.username:hover,
+body main div.container div.posts-show div.posts-show-header p a.username:hover {
   opacity: 0.5;
 }
 
-html main div.container div.post-show p.post-body,
-body main div.container div.post-show p.post-body {
-  font-size: 30px;
+html main div.container div.posts-show div.posts-show-body,
+body main div.container div.posts-show div.posts-show-body {
+  margin-top: 30px;
+  padding-bottom: 30px;
+  border-bottom: 1px dashed #ccc;
 }
 
-html main div.container div.post-show p.datetime,
-body main div.container div.post-show p.datetime {
+html main div.container div.posts-show div.posts-show-body p.body,
+body main div.container div.posts-show div.posts-show-body p.body {
+  margin-left: 10px;
+  padding-bottom: 20px;
   font-size: 15px;
 }
 
-html main div.container div.user-area,
-body main div.container div.user-area {
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
+html main div.container div.posts-show div.posts-show-body div.image,
+body main div.container div.posts-show div.posts-show-body div.image {
+  margin-left: 10px;
 }
 
-html main div.container div.user-list table,
-body main div.container div.user-list table {
-  border-collapse: separate;
-  border-spacing: 20px 5px;
+html main div.container div.comments-show,
+body main div.container div.comments-show {
+  margin: auto;
+  width: 70%;
 }
 
-html main div.container div.user-list table thead tr,
-body main div.container div.user-list table thead tr {
-  font-size: 30px;
+html main div.container div.comments-show div.comments-list,
+body main div.container div.comments-show div.comments-list {
+  padding: 30px 0px 10px 0px;
 }
 
-html main div.container div.user-list table thead tr th,
-body main div.container div.user-list table thead tr th {
-  font-size: 25px;
+html main div.container div.comments-show div.comments-list h2,
+body main div.container div.comments-show div.comments-list h2 {
+  font-size: 20px;
 }
 
-html main div.container div.user-list table thead tr th.user-top,
-body main div.container div.user-list table thead tr th.user-top {
-  font-size: 30px;
+html main div.container div.comments-show div.comments-list table,
+body main div.container div.comments-show div.comments-list table {
+  width: 100%;
+  border-collapse: collapse;
 }
 
-html main div.container div.form-area,
-body main div.container div.form-area {
+html main div.container div.comments-show div.comments-list table tbody tr,
+body main div.container div.comments-show div.comments-list table tbody tr {
+  border-bottom: 1px dashed #ccc;
+}
+
+html main div.container div.comments-show div.comments-list table tbody tr td.datetime,
+body main div.container div.comments-show div.comments-list table tbody tr td.datetime {
+  font-size: 13px;
+  text-align: right;
+}
+
+html main div.container div.comments-show div.comments-list table tbody tr td.delete-btn,
+body main div.container div.comments-show div.comments-list table tbody tr td.delete-btn {
+  text-align: right;
+  padding-bottom: 3px;
+}
+
+html main div.container div.comments-show div.comments-list table tbody tr td.delete-btn button.btn-delete,
+body main div.container div.comments-show div.comments-list table tbody tr td.delete-btn button.btn-delete {
+  font-size: 12px;
+  padding: 4px 10px;
+}
+
+html main div.container div.comments-show div.comment-form,
+body main div.container div.comments-show div.comment-form {
+  margin-top: 12px;
+}
+
+html main div.container div.comments-show div.comment-form button.btn-submit,
+body main div.container div.comments-show div.comment-form button.btn-submit {
+  float: right;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+html main div.container div.posts-create,
+body main div.container div.posts-create {
   margin: auto;
   width: 80%;
 }
 
-html main div.container div.comment-list tr td,
-body main div.container div.comment-list tr td {
-  list-style: none;
+html main div.container div.posts-create div.form-file label,
+body main div.container div.posts-create div.form-file label {
+  display: block;
 }
 
-html main div.container div.comment-list tr td.datetime,
-body main div.container div.comment-list tr td.datetime {
-  font-size: 10px;
+html main div.container div.posts-create div.form-file button#image_reset,
+body main div.container div.posts-create div.form-file button#image_reset {
+  float: right;
+}
+
+html main div.container div.posts-create div.submit-btn,
+body main div.container div.posts-create div.submit-btn {
+  border-bottom: 1px dashed #ccc;
+  margin-top: 20px;
+}
+
+html main div.container div.posts-create div.submit-btn button.btn-submit,
+body main div.container div.posts-create div.submit-btn button.btn-submit {
+  margin-top: 10px;
+  float: right;
+}
+
+html main div.container div.posts-edit,
+body main div.container div.posts-edit {
+  margin: auto;
+  width: 80%;
+}
+
+html main div.container div.posts-edit div.form-file label,
+body main div.container div.posts-edit div.form-file label {
+  display: block;
+}
+
+html main div.container div.posts-edit div.form-file img,
+body main div.container div.posts-edit div.form-file img {
+  padding: 10px 0px;
+}
+
+html main div.container div.posts-edit div.form-file button#image_reset,
+body main div.container div.posts-edit div.form-file button#image_reset {
+  float: right;
+}
+
+html main div.container div.posts-edit div.submit-btn,
+body main div.container div.posts-edit div.submit-btn {
+  border-bottom: 1px dashed #ccc;
+  margin-top: 20px;
+}
+
+html main div.container div.posts-edit div.submit-btn button.btn-submit,
+body main div.container div.posts-edit div.submit-btn button.btn-submit {
+  margin-top: 10px;
+  margin-bottom: 30px;
+  float: right;
+}
+
+html main div.container div.users-show,
+body main div.container div.users-show {
+  margin: auto;
+  width: 80%;
+}
+
+html main div.container div.users-show div.btns,
+body main div.container div.users-show div.btns {
+  float: right;
+}
+
+html main div.container div.users-show div.btns a.btn-edit,
+body main div.container div.users-show div.btns a.btn-edit {
+  padding: 6px 18px;
+}
+
+html main div.container div.users-edit,
+body main div.container div.users-edit {
+  margin: auto;
+  width: 80%;
+}
+
+html main div.container div.users-edit div.submit-btn,
+body main div.container div.users-edit div.submit-btn {
+  border-bottom: 1px dashed #ccc;
+  margin-top: 20px;
+}
+
+html main div.container div.users-edit div.submit-btn button.btn-submit,
+body main div.container div.users-edit div.submit-btn button.btn-submit {
+  margin-top: 10px;
+  float: right;
 }
 
 html main div.container ul.pagination,
@@ -234,13 +423,5 @@ body footer p {
   color: white;
   font-size: 10px;
   margin-bottom: 10px;
-}
-
-a.btn {
-  padding: 3px 8px;
-}
-
-button.btn {
-  padding: 3px 8px;
 }
 

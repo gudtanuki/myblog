@@ -1,12 +1,11 @@
 @extends('layouts.main')
 
 @section('content')
-<div class="post-show">
-    <h1>{{ $post->title }}</h1>
-    <a class="username" href="{{ url('users/' . $post->user->id) }}">by {{ $post->user->name }}</a>
+<div class="posts-show">
+
     @can('update', $post)
-    <div class="post-btns">
-        <a href="{{ url('posts/' . $post->id . '/edit') }}" class="btn btn-primary">Edit</a>
+    <div class="btns">
+        <a href="{{ url('posts/' . $post->id . '/edit') }}" class="btn btn-outline-primary btn-edit">Edit</a>
         @component('components.delete-btn')
             @slot('controller', 'posts')
             @slot('id', $post->id)
@@ -14,34 +13,45 @@
         @endcomponent
     </div>
     @endcan
-    <div class="post-info">
-        <hr>
-        <p class="datetime">created:{{ $post->created_at->format('Y-m-d') }}</p>
+
+    <div class="posts-show-header">
+        <h1>{{ $post->title }}</h1>
+        <p>by<a class="username" href="{{ url('users/' . $post->user->id) }}"> {{ $post->user->name }}</a></p>
         <p class="datetime">updated:{{ $post->updated_at->format('Y-m-d') }}</p>
-        <hr>
-        <p class="post-body">{!! nl2br(e($post->body)) !!}</p>
-        <hr>
+    </div>
+    <div class="posts-show-body">
+        <p class="body">{!! nl2br(e($post->body)) !!}</p>
+
         @if ($post->image !== null)
         <div class="image">
             <img class="image-size" src="data:image/png;base64,{{ $post->image }}">
         </div>
-        <hr>
         @endif
+
     </div>
 
+</div>
+
+<div class="comments-show">
     {{-- コメントが一つでもあれば表示 --}}
     @if (isset($post->comments[0]))
-    <div class="comment-list">
-        <h2>Comments</h2>
+    <div class="comments-list">
         <table>
+            <thead>
+                <tr>
+                    <th class="comment-top" colspan="4">Comments</th>
+                </tr>
+            </thead>
             <tbody>
+
                 @foreach ($post->comments as $comment)
                 <tr>
                     <td>{{ $loop->iteration }}, </td>
-                    <td>{!! nl2br(e($comment->body)) !!}</td>
+                    <td class="body">{!! nl2br(e($comment->body)) !!}</td>
                     <td class="datetime">{{ $comment->created_at->format('Y-m-d') }}</td>
+
                     @can('update', $post)
-                    <td>
+                    <td class="delete-btn">
                         @component('components.delete-btn')
                             @slot('controller', 'comments')
                             @slot('id', $comment->id)
@@ -49,12 +59,15 @@
                         @endcomponent
                     </td>
                     @endcan
+
                 </tr>
                 @endforeach
+
             </tbody>
         </table>
     </div>
     @endif
+
     <div class="comment-form">
         <form action="{{ url('comments') }}" method="post">
             @csrf
@@ -62,7 +75,7 @@
             <div class="form-group">
                 <label for="body">Comment</label>
                 <textarea class="form-control" id="body" name="body" rows="3" required></textarea>
-                <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+                <button type="submit" class="btn btn-primary btn-submit" name="submit">Submit</button>
             </div>
         </form>
     </div>

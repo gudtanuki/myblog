@@ -1,4 +1,4 @@
-<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Delete</button>
+<button type="button" class="btn btn-danger btn-delete" data-toggle="modal" data-target="#myModal">Delete</button>
 
       
 <!-- モーダルの設定 -->

@@ -1,11 +1,11 @@
 @extends('layouts.main')
 
 @section('content')
-<div class="user-area">
-    <h1>User:{{ $user->name }}</h1>
+<div class="users-show">
+
     @can('update', $user)
     <div class="btns">
-        <a href="{{ url('users/' . $user->id . '/edit') }}" class="btn btn-primary">Edit</a>
+        <a href="{{ url('users/' . $user->id . '/edit') }}" class="btn btn-outline-primary btn-edit">Edit</a>
         @component('components.delete-btn')
             @slot('controller', 'users')
             @slot('id', $user->id)
@@ -13,12 +13,15 @@
         @endcomponent
     </div>
     @endcan
+    <h1>User:{{ $user->name }}</h1>
 </div>
-<div class="posts-table">
+<div class="my-posts-list">
     @if ($user->posts[0])
     <table>
-        <p>MY POSTS</p>
         <thead>
+            <tr>
+                <th class="post-top" colspan="3">My Posts</th>
+            </tr>
             <tr>
                 <th>Title</th>
                 <th>Created</th>

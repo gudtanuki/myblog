@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-<div class="form-area">
+<div class="posts-edit">
     <h1>Edit Post</h1>
     <form action="{{ url('posts/' . $post->id) }}" method="post" enctype="multipart/form-data">
         @csrf
@@ -24,23 +24,25 @@
                 </span>
             @endif
         </div>
-        <div class="form-item form-group" id="imageform">
+        <div class="form-item form-file" id="imageform">
             <label for="image" id="image-label">Image</label>
             @if ($post->image !== null)
             <img id="image-view" src="data:image/png;base64,{{ $post->image }}">
-            <button type="button" class="btn btn-secondary" id="image_delete">image delete</button>         
+            <button type="button" class="btn btn-outline-secondary btn-image-delete" id="image_delete">←image delete</button>         
             @endif
             <div>
-                <input type="file" class="form-control @if ($errors->has('image')) is-invalid @endif" id="image-input" name="image">
-                <button type="button" class="btn btn-secondary" id="image_reset">image reset</button>
+                <input type="file" class="@if ($errors->has('image')) is-invalid @endif" id="image-input" name="image">
+                <button type="button" class="btn btn-outline-secondary btn-image-reset" id="image_reset">←image reset</button>
             </div>
             @if ($errors->has('image'))
                 <span class="invalid-feedback">
                     {{ $errors->first('image') }}
                 </span>
             @endif
-            </div>
-        <button type="submit"  class="submit btn btn-primary" name="submit">Submit</button>
+        </div>
+        <div class="submit-btn">
+            <button type="submit" class="btn btn-primary btn-submit" name="submit">Submit</button>
+        </div>
     </form>
 </div>
 <script>

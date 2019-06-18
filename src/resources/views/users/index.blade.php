@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-<div class="posts-table user-list">
+<div class="users-list">
     <table>
         <thead>
             <tr>

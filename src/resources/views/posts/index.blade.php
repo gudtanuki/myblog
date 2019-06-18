@@ -1,9 +1,12 @@
 @extends('layouts.main')
 
 @section('content')
-<div class="posts-table">
+<div class="posts-list">
     <table>
         <thead>
+            <tr>
+                <th class="post-top" colspan="4">Posts List</th>
+            </tr>
             <tr>
                 <th>Title</th>
                 <th>User</th>

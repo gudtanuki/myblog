@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-<div class="form-area">
+<div class="users-edit">
     <h1>Edit User</h1>
     <form action="{{ url('users/' . $user->id) }}" method="post">
         @csrf
@@ -16,15 +16,17 @@
             @endif
         </div>
         <div class="form-item form-group">
-                <label for="name">Email</label>
-                <input class="form-control @if ($errors->has('email')) is-invalid @endif" id="email" type="text" name="email" value="{{ old('name', $user->email) }}" required>
-                @if ($errors->has('email'))
-                    <span class="invalid-feedback">
-                        {{ $errors->first('email') }}
-                    </span>
-                @endif
-            </div>
-        <button type="submit" class="submit btn btn-primary" name="submit">Submit</button>
+            <label for="name">Email</label>
+            <input class="form-control @if ($errors->has('email')) is-invalid @endif" id="email" type="text" name="email" value="{{ old('name', $user->email) }}" required>
+            @if ($errors->has('email'))
+                <span class="invalid-feedback">
+                    {{ $errors->first('email') }}
+                </span>
+            @endif
+        </div>
+        <div class="submit-btn">
+            <button type="submit" class="submit btn btn-primary btn-submit" name="submit">Submit</button>
+        </div>
     </form>
 </div>
 @endsection

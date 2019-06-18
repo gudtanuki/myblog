@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-<div class="form-area">
+<div class="posts-create">
     <h1>New Post</h1>
     <form action="{{ url('posts') }}" method="post" enctype="multipart/form-data">
         @csrf
@@ -25,24 +25,26 @@
             @endif
         </div>
         
-        <div class="form-item form-group">
+        <div class="form-item form-file">
             <label for="image" id="image-label">Image</label>
-            <input type="file" class="form-control @if ($errors->has('image')) is-invalid @endif" id="image-input" name="image">
+            <input type="file" class="@if ($errors->has('image')) is-invalid @endif" id="image-input" name="image">
             @if ($errors->has('image'))
                 <span class="invalid-feedback">
                     {{ $errors->first('image') }}
                 </span>
             @endif
-            <button type="button" class="btn btn-secondary" id="image_reset">image reset</button>
+            <button type="button" class="btn btn-outline-secondary" id="image_reset">←image reset</button>
         </div>
-        <button type="submit" class="submit-btn btn btn-primary" name="submit">Submit</button>
+        <div class="submit-btn">
+            <button type="submit" class="btn btn-primary btn-submit" name="submit">Submit</button>
+        </div>
     </form>
 </div>
 <script>
     $(function() {
         $("#image_reset").on("click", function(){
             $("#image-input").remove();
-            $('#image-label').after('<input type="file" class="form-control <?php if ($errors->has("image")){echo "is-invalid";}?>" id="image-input" name="image">');
+            $('#image-label').after('<input type="file" class="<?php if ($errors->has("image")){echo "is-invalid";}?>" id="image-input" name="image">');
         });
     });
 </script>

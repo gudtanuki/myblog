@@ -8,6 +8,7 @@ use App\Http\Requests\ValidateUser;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
@@ -24,12 +25,28 @@ class RegisterController extends Controller
 
     use RegistersUsers;
 
+    // /**
+    //  * Where to redirect users after registration.
+    //  *
+    //  * @var string
+    //  */
+    // protected $redirectTo = '/';
+
     /**
-     * Where to redirect users after registration.
-     *
-     * @var string
+     * Illuminate\Foundation\Auth\RegistersUsersのregisteredをオーバーライド
+     * https://github.com/laravel/framework/blob/5.8/src/Illuminate/Foundation/Auth/RegistersUsers.php
      */
-    protected $redirectTo = '/';
+    /**
+     * The user has been registered.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  mixed  $user
+     * @return mixed
+     */
+    protected function registered(Request $request, $user)
+    {
+        return redirect('users/' . $user->id)->with('status','Registed your account!');
+    }
 
     /**
      * Create a new controller instance.

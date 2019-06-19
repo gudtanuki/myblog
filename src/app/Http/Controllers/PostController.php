@@ -59,7 +59,7 @@ class PostController extends Controller
             $post->image = base64_encode(file_get_contents($request->image->getRealPath()));
         }
         $post->save();
-        return redirect('posts/'.$post->id);
+        return redirect('posts/'.$post->id)->with('status', 'Post created: ' . $post->title . '!');
     }
 
     /**
@@ -103,7 +103,7 @@ class PostController extends Controller
             $post->image = null;
         }
         $post->save();
-        return redirect('posts/' . $post->id);
+        return redirect('posts/' . $post->id)->with('status', 'Post updated: ' . $post->title . '!');
     }
 
     /**
@@ -121,6 +121,6 @@ class PostController extends Controller
         $comments->delete();
         
         $post->delete();
-        return redirect('/');
+        return redirect('/')->with('status', 'Post deleted!');
     }
 }

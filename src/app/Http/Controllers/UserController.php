@@ -99,7 +99,7 @@ class UserController extends Controller
         $user->name = $request->name;
         $user->email = $request->email;
         $user->save();
-        return redirect('users/' . $user->id);
+        return redirect('users/' . $user->id)->with('status', 'Your profile updated!');
     }
 
     /**
@@ -128,6 +128,6 @@ class UserController extends Controller
         $users_posts->delete();
         
         $user->delete();
-        return redirect('/');
+        return redirect('/')->with('status', 'Your account deleted!');
     }
 }

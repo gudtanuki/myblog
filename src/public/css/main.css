@@ -70,6 +70,11 @@ body header div.blog-title a:hover {
   opacity: 0.5;
 }
 
+html main div.alert-success,
+body main div.alert-success {
+  text-align: center;
+}
+
 html main div.container,
 body main div.container {
   padding-top: 50px;

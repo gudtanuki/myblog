@@ -83,6 +83,30 @@ body main div.container {
   margin-right: auto;
 }
 
+html main div.container div.auth-login,
+html main div.container div.auth-register,
+body main div.container div.auth-login,
+body main div.container div.auth-register {
+  margin: auto;
+  width: 70%;
+}
+
+html main div.container div.auth-login div.login-btn,
+html main div.container div.auth-register div.login-btn,
+body main div.container div.auth-login div.login-btn,
+body main div.container div.auth-register div.login-btn {
+  border-bottom: 1px dashed #ccc;
+  margin-top: 20px;
+}
+
+html main div.container div.auth-login div.login-btn button.btn-login,
+html main div.container div.auth-register div.login-btn button.btn-login,
+body main div.container div.auth-login div.login-btn button.btn-login,
+body main div.container div.auth-register div.login-btn button.btn-login {
+  margin-top: 10px;
+  float: right;
+}
+
 html main div.container div.posts-list,
 html main div.container div.users-list,
 html main div.container div.my-posts-list,

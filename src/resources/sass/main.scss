@@ -68,6 +68,20 @@ html, body {
       margin-left: auto;
       margin-right: auto;
 
+      // auth/login
+      div.auth-login, div.auth-register {
+        margin: auto;
+        width: 70%;
+        div.login-btn {
+          border-bottom:1px dashed #ccc;
+          margin-top: 20px; 
+          button.btn-login {
+            margin-top: 10px;
+            float: right;
+          }
+        }
+      }
+
       // posts/index, users/index
       div.posts-list, div.users-list, div.my-posts-list {
         margin: auto;

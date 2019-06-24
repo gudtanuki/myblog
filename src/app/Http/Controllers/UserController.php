@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 class UserController extends Controller
 {
     /**
-     * ログインしてない場合、UserControllerは使えない
+     * ログインしてない場合、UserControllerはindexとshowのみ
      */
     public function __construct()
     {

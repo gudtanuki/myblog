@@ -102,7 +102,7 @@ $(function () {
     });
     $.ajax({
       url: '/posts/like_add',
-      type: 'GET'
+      type: 'POST'
     }) // Ajaxリクエストが成功した場合
     .done(function (data) {
       // console.log(data);
@@ -124,7 +124,7 @@ $(function () {
     });
     $.ajax({
       url: '/posts/like_destroy',
-      type: 'GET'
+      type: 'POST'
     }) // Ajaxリクエストが成功した場合
     .done(function (data) {
       // console.log(data);

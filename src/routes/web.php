@@ -12,8 +12,8 @@
 */
 
 Route::get('/', 'PostController@index');
-Route::post('/posts/like_add', 'PostController@like_add');
-Route::post('/posts/like_destroy', 'PostController@like_destroy');
+Route::get('/posts/like_add', 'PostController@like_add');
+Route::get('/posts/like_destroy', 'PostController@like_destroy');
 Route::resource('posts', 'PostController', array(
     'except' => 'index'
 ));

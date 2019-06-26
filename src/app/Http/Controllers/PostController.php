@@ -135,7 +135,7 @@ class PostController extends Controller
         return redirect('/')->with('status', 'Post deleted!');
     }
 
-    public function like_add() {
+    public function like_add(Request $request) {
         // 前のURLを取得
         $pass = url()->previous();
         // 取得したURLから数字のみ（つまりpost.id）を取得
@@ -148,7 +148,7 @@ class PostController extends Controller
         return $like_count;
     }
 
-    public function like_destroy() {
+    public function like_destroy(Request $request) {
         // 前のURLを取得
         $pass = url()->previous();
         // 取得したURLから数字のみ（つまりpost.id）を取得

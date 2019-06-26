@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ValidatePost;
 use App\Post;
+use App\Like;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -70,7 +71,14 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        return view('posts.show', ['post' => $post]);
+        if (Auth::user()) {
+            if (Like::where('user_id', Auth::user()->id)->where('post_id', $post->id)->first()) {
+                $like_or = Like::where('user_id', Auth::user()->id)->where('post_id', $post->id)->first();
+            } else {
+                $like_or = null;
+            }
+        }
+        return view('posts.show', ['post' => $post, 'like_or' => $like_or]);
     }
 
     /**
@@ -122,5 +130,31 @@ class PostController extends Controller
         
         $post->delete();
         return redirect('/')->with('status', 'Post deleted!');
+    }
+
+    public function like_add() {
+        // 前のURLを取得
+        $pass = url()->previous();
+        // 取得したURLから数字のみ（つまりpost.id）を取得
+        $post_id = preg_replace('/[^0-9]/', '', $pass);
+        $like = new Like;
+        $like->user_id = Auth::user()->id;
+        $like->post_id = $post_id;
+        $like->save();
+        $like_count = Like::where('post_id', $post_id)->count();
+        return $like_count;
+    }
+
+    public function like_destroy() {
+        // 前のURLを取得
+        $pass = url()->previous();
+        // 取得したURLから数字のみ（つまりpost.id）を取得
+        $post_id = preg_replace('/[^0-9]/', '', $pass);
+        $user_id = Auth::user()->id;
+        $like = Like::where('user_id', $user_id)->where('post_id', $post_id)->first();
+        $like->delete();
+
+        $like_count = Like::where('post_id', $post_id)->count();
+        return $like_count;
     }
 }

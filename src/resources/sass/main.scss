@@ -171,6 +171,24 @@ html, body {
           }
         }
       }
+
+      // posts/show いいねエリア
+      div.like-post {
+        margin-right: 10px;
+        text-align: right;
+        i {
+          &:hover {
+            opacity: 0.5;
+          }
+        }
+        i.delete-like, span.color-red {
+          color: #de2e2e;
+        }
+        i.add-like, span.color-black {
+          color: #000000;
+        }
+      }
+
       // posts/show コメントエリア
       div.comments-show {
         margin: auto;

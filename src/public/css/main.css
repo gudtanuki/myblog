@@ -280,6 +280,31 @@ body main div.container div.posts-show div.posts-show-body div.image {
   margin-left: 10px;
 }
 
+html main div.container div.like-post,
+body main div.container div.like-post {
+  margin-right: 10px;
+  text-align: right;
+}
+
+html main div.container div.like-post i:hover,
+body main div.container div.like-post i:hover {
+  opacity: 0.5;
+}
+
+html main div.container div.like-post i.delete-like,
+html main div.container div.like-post span.color-red,
+body main div.container div.like-post i.delete-like,
+body main div.container div.like-post span.color-red {
+  color: #de2e2e;
+}
+
+html main div.container div.like-post i.add-like,
+html main div.container div.like-post span.color-black,
+body main div.container div.like-post i.add-like,
+body main div.container div.like-post span.color-black {
+  color: #000000;
+}
+
 html main div.container div.comments-show,
 body main div.container div.comments-show {
   margin: auto;

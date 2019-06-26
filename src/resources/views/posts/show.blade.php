@@ -31,19 +31,20 @@
         @endif
     </div>
     @if (Auth::user())
-    <div class="like-post">
-        {{-- foreachで、ログイン中のユーザーがこの投稿をいいねしてないかチェック --}}
-        @if ($like_or)
-            <i class="fas fa-heart delete-like"></i>
-            <span>{{ $post->likes->count() }}</span>
-        @else
-            <i class="far fa-heart add-like"></i>
-            <span>{{ $post->likes->count() }}</span>
-        @endif
-    </div>
+    {{-- <div class="likes-show"> --}}
+        <div class="like-post">
+            {{-- foreachで、ログイン中のユーザーがこの投稿をいいねしてないかチェック --}}
+            @if ($like_or)
+                <i class="fas fa-heart delete-like"></i>
+                <span class="color-red">{{ $post->likes->count() }}</span>
+            @else
+                <i class="far fa-heart add-like"></i>
+                <span class="color-black">{{ $post->likes->count() }}</span>
+            @endif
+        </div>
     @endif
-
-</div>
+    </div>
+{{-- </div> --}}
 
 <div class="comments-show">
     {{-- コメントが一つでもあれば表示 --}}
@@ -109,7 +110,9 @@ $(function() {
         .done(function(data) {
             // console.log(data);
             $('.add-like').remove();
-            $('.like-post').prepend('<i class="fas fa-heart delete-like"></i>')
+            $('.like-post').prepend('<i class="fas fa-heart delete-like"></i>');
+            $('span').removeClass('color-black');
+            $('span').addClass('color-red');
             $('span').text(data);
 
         })
@@ -133,6 +136,8 @@ $(function() {
             // console.log(data);
             $('.delete-like').remove();
             $('.like-post').prepend('<i class="far fa-heart add-like"></i>');
+            $('span').removeClass('color-red');
+            $('span').addClass('color-black');
             $('span').text(data);
 
         })

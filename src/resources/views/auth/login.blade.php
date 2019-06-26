@@ -34,6 +34,9 @@
         <div class="login-btn">
             <button type="submit" class="btn btn-primary btn-login">Login</button>
         </div>
+        <a class="btn btn-link" href="{{ route('password.request') }}">
+                Forgot Your Password?
+        </a>
     </form>
 </div>
 @endsection

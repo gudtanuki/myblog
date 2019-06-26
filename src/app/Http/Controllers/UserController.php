@@ -122,6 +122,9 @@ class UserController extends Controller
             $comments->delete();
         }
 
+        $likes = $user->likes();
+        $likes->delete();
+
         // 関連する投稿を削除
         // postsを一括削除するときは、$user->postsではなく、$user->posts()
         $users_posts = $user->posts();

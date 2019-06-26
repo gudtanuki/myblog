@@ -127,6 +127,9 @@ class PostController extends Controller
         // 関連するコメントを削除
         $comments = $post->comments();
         $comments->delete();
+
+        $likes = $post->likes();
+        $likes->delete();
         
         $post->delete();
         return redirect('/')->with('status', 'Post deleted!');

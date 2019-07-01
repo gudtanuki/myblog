@@ -39,7 +39,7 @@ return [
     |
     */
 
-    'debug' => env('APP_DEBUG', true),
+    'debug' => env('APP_DEBUG', false),
 
     /*
     |--------------------------------------------------------------------------
@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'https://gudblog.herokuapp.com/'),
+    'url' => env('APP_URL', 'https://gudmyblog.herokuapp.com/'),
 
     'asset_url' => env('ASSET_URL', null),
 

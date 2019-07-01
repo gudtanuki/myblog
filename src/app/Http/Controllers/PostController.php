@@ -77,6 +77,8 @@ class PostController extends Controller
             } else {
                 $like_or = null;
             }
+        } else {
+            $like_or = null;
         }
         return view('posts.show', ['post' => $post, 'like_or' => $like_or]);
     }

@@ -31,9 +31,9 @@
             <select name="role" id="role">
                 @foreach ($roles as $key => $role)
                     @if ($user->role_id == $role->role_index)
-                    <option value="{{ $key }}" selected>{{ $role->name }}</option>         
+                    <option value="{{ $role->role_index }}" selected>{{ $role->name }}</option>         
                     @else
-                    <option value="{{ $key }}">{{ $role->name }}</option>
+                    <option value="{{ $role->role_index }}">{{ $role->name }}</option>
                     @endif
                 @endforeach
             </select>

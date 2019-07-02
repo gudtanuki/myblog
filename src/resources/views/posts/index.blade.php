@@ -5,11 +5,12 @@
     <table>
         <thead>
             <tr>
-                <th class="post-top" colspan="4">Posts List</th>
+                <th class="post-top" colspan="5">Posts List</th>
             </tr>
             <tr>
                 <th>Title</th>
                 <th>User</th>
+                <th>Category</th>
                 <th>Created</th>
                 <th>Update</th>
             </tr>
@@ -23,6 +24,7 @@
                 <td class="username">
                     <a href="{{ url('users/' . $post->user->id) }}">{{ $post->user->name }}</a>
                 </td>
+                <td class="category">{{ $post->category->name }}</td>
                 <td class="datetime">{{ $post->created_at }}</td>
                 <td class="datetime">{{ $post->updated_at }}</td>
             </tr>

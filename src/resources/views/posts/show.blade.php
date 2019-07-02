@@ -21,6 +21,9 @@
         <p>by<a class="username" href="{{ url('users/' . $post->user->id) }}"> {{ $post->user->name }}</a></p>
         <p class="datetime">updated:{{ $post->updated_at->format('Y-m-d') }}</p>
     </div>
+    <div class="posts-category">
+        <p class="category">Category: {{ $post->category->name }}</p>
+    </div>
     <div class="posts-show-body">
         <p class="body">{!! nl2br(e($post->body)) !!}</p>
 

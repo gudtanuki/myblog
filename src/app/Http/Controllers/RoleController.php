@@ -58,7 +58,6 @@ class RoleController extends Controller
     public function show(Role $role)
     {
         $role->users = $role->users()->orderBy('created_at', 'desc')->get();
-        // dd($role->users());
         return view('roles.show', ['role' => $role]);
     }
 

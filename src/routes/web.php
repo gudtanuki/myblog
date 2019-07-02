@@ -46,6 +46,7 @@ Route::group(['middleware' => ['auth','can:admin']], function(){
             'delete'
         )
     ));
+    Route::resource('categories', 'CategoryController');
 });
 
 Auth::routes();

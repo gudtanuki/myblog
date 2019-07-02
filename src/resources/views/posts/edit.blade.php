@@ -16,6 +16,18 @@
             @endif
         </div>
         <div class="form-item form-group">
+            <label for="category">Category</label>
+            <select name="category" id="category">
+                @foreach ($post->category as $key => $category)
+                    @if ($post->category_id == $category->id)
+                    <option value="{{ $category->id }}" selected>{{ $category->name }}</option>         
+                    @else
+                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                    @endif
+                @endforeach
+            </select>
+        </div>
+        <div class="form-item form-group">
             <label for="body">Body</label>
             <textarea class="form-control @if ($errors->has('body')) is-invalid @endif" name="body" id="body" rows="6" required>{{ old('body', $post->body) }}</textarea>
             @if ($errors->has('body'))

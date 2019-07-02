@@ -56,6 +56,9 @@
                         <li class="sign-item signed admin">
                             <a class="item-link" href="{{ url('roles/') }}">Roles</a>
                         </li>
+                        <li class="sign-item signed category">
+                            <a class="item-link" href="{{ url('categories/') }}">Categories</a>
+                        </li>
                     @endif
                 @endguest
             </ul>

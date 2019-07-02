@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ValidatePost;
 use App\Post;
 use App\Like;
+use App\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -40,7 +41,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('posts.create');
+        $categories = Category::orderBy('created_at', 'desc')->get();
+        return view('posts.create', ['categories' => $categories]);
     }
 
     /**
@@ -53,6 +55,7 @@ class PostController extends Controller
     {
         $post = new Post;
         $post->title = $request->title;
+        $post->category_id = $request->category;
         $post->body = $request->body;
         $post->user_id = Auth::user()->id;
 
@@ -92,6 +95,7 @@ class PostController extends Controller
     public function edit(Post $post)
     {
         $this->authorize('update', $post);
+        $post->category = Category::orderBy('created_at', 'desc')->get();
         return view('posts.edit', ['post' => $post]);
     }
 
@@ -106,6 +110,7 @@ class PostController extends Controller
     {
         $this->authorize('update', $post);
         $post->title = $request->title;
+        $post->category_id = $request->category;
         $post->body = $request->body;
         if ($request->image !== null) {
             $post->image = base64_encode(file_get_contents($request->image->getRealPath()));

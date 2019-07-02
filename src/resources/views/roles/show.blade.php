@@ -5,7 +5,7 @@
         <table>
             <thead>
                 <tr>
-                    <th class="role" colspan="4">{{ $role->name }}</th>
+                    <th class="role" colspan="4">Role: {{ $role->name }}</th>
                 </tr>
                 <tr>
                     <th class="users" colspan="4">Users List</th>
@@ -20,7 +20,7 @@
             <tbody>
                 @foreach ($role->users as $key => $user)
                 <tr>
-                    <td class="user_no">{{ $key }}</td>
+                    <td class="user_no">{{ $key + 1 }}</td>
                     <td class="username">
                         <a href="{{ url('users/' . $user->id . '/edit') }}">{{ $user->name }}</a>
                     </td>

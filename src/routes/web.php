@@ -34,6 +34,20 @@ Route::resource('comments', 'CommentController', array(
         'update'
     )
 ));
+
+Route::group(['middleware' => ['auth','can:admin']], function(){
+    Route::resource('roles', 'RoleController', array(
+        'except' => array(
+            'create',
+            'store',
+            'update',
+            'edit',
+            'update',
+            'delete'
+        )
+    ));
+});
+
 Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');

@@ -28,6 +28,10 @@ class PostPolicy
      * @return mixed
      */
     public function update(User $user, Post $post) {
+        // 管理者権限の人は無条件に許可
+        if ($user->role_id == 1) {
+            return true;
+        }
         return $user->id === $post->user_id;
     }
 }

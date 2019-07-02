@@ -72,8 +72,13 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
+        if (Auth::user()->role_id > 0) {
+            $roles = \App\Role::all('role_index', 'name');
+        } else {
+            $roles = null;
+        }
         $this->authorize('update', $user);
-        return view('users.edit', ['user' => $user]);
+        return view('users.edit', ['user' => $user, 'roles' => $roles]);
     }
 
     /**
@@ -98,6 +103,10 @@ class UserController extends Controller
 
         $user->name = $request->name;
         $user->email = $request->email;
+        if (isset($request->role)) {
+            // int型になってないので強制的に変換
+            $user->role_id = (int)$request->role;
+        }
         $user->save();
         return redirect('users/' . $user->id)->with('status', 'Your profile updated!');
     }

@@ -27,6 +27,10 @@ class UserPolicy
      * @return mixed
      */
     public function update(User $user, User $model) {
+        // 管理者権限の人は無条件に許可
+        if ($user->role_id == 1) {
+            return true;
+        }
         return $user->id === $model->id;
     }
 }

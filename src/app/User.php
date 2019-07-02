@@ -52,4 +52,8 @@ class User extends Authenticatable
     public function likes() {
       return $this->hasMany('App\Like');
     }
+
+    public function role() {
+        return $this->belongsTo('App\Role', 'role_id', 'role_index');
+    }
 }

@@ -52,6 +52,11 @@
                             @method('POST')
                         </form>
                     </li>
+                    @if (Auth::user()->role_id > 0)
+                        <li class="sign-item signed admin">
+                            <a class="item-link" href="{{ url('roles/') }}">Roles</a>
+                        </li>
+                    @endif
                 @endguest
             </ul>
         </div>

@@ -16,7 +16,7 @@
             @endif
         </div>
         <div class="form-item form-group">
-            <label for="name">Email</label>
+            <label for="email">Email</label>
             <input class="form-control @if ($errors->has('email')) is-invalid @endif" id="email" type="text" name="email" value="{{ old('name', $user->email) }}" required>
             @if ($errors->has('email'))
                 <span class="invalid-feedback">
@@ -24,6 +24,22 @@
                 </span>
             @endif
         </div>
+
+        @if (Auth::user()->role_id > 0)
+        <div class="form-item form-group">
+            <label for="role">Role</label>
+            <select name="role" id="role">
+                @foreach ($roles as $key => $role)
+                    @if ($user->role_id == $role->role_index)
+                    <option value="{{ $key }}" selected>{{ $role->name }}</option>         
+                    @else
+                    <option value="{{ $key }}">{{ $role->name }}</option>
+                    @endif
+                @endforeach
+            </select>
+        </div>
+        @endif
+
         <div class="submit-btn">
             <button type="submit" class="submit btn btn-primary btn-submit" name="submit">Submit</button>
         </div>
